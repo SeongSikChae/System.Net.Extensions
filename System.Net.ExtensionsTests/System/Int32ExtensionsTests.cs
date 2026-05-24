@@ -8,7 +8,7 @@
 		[TestMethod]
 		public void ToSubnetMaskTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				_ = (-1 * 1).ToSubnetMask();
 			});

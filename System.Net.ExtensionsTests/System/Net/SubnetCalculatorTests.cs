@@ -8,12 +8,12 @@
 		[TestMethod]
 		public void CalculateTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				SubnetCalculator.Calculate(IPAddress.IPv6Any, IPAddress.Any);
 			});
 
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				SubnetCalculator.Calculate(IPAddress.Any, IPAddress.IPv6Any);
 			});

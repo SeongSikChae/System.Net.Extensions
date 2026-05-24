@@ -24,7 +24,7 @@
 			{
 				IPAddress network = IPAddress.IPv6Any;
 				IPAddress netmask = IPAddress.Parse("255.255.255.128");
-				Assert.ThrowsException<InvalidOperationException>(() =>
+				Assert.ThrowsExactly<InvalidOperationException>(() =>
 				{
 					network.GetNetwork(netmask);
 				});
@@ -33,7 +33,7 @@
 			{
 				IPAddress netmask = IPAddress.IPv6Any;
 				IPAddress network = IPAddress.Parse("255.255.255.128");
-				Assert.ThrowsException<InvalidOperationException>(() =>
+				Assert.ThrowsExactly<InvalidOperationException>(() =>
 				{
 					network.GetNetwork(netmask);
 				});
@@ -58,7 +58,7 @@
 			{
 				IPAddress network = IPAddress.IPv6Any;
 				IPAddress netmask = IPAddress.Parse("255.255.255.128");
-				Assert.ThrowsException<InvalidOperationException>(() =>
+				Assert.ThrowsExactly<InvalidOperationException>(() =>
 				{
 					network.ValidNetwork(netmask);
 				});
@@ -67,7 +67,7 @@
 			{
 				IPAddress netmask = IPAddress.IPv6Any;
 				IPAddress network = IPAddress.Parse("255.255.255.128");
-				Assert.ThrowsException<InvalidOperationException>(() =>
+				Assert.ThrowsExactly<InvalidOperationException>(() =>
 				{
 					network.ValidNetwork(netmask);
 				});
@@ -77,12 +77,12 @@
 		[TestMethod]
 		public void ValidHostTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.ValidHost("192.168.0.0/25");
 			});
 
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.Parse("192.168.0.129").ValidHost("192.168.0.128/A");
 			});
@@ -93,7 +93,7 @@
 		[TestMethod]
 		public void ToCidrTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.ToCidr();
 			});
@@ -105,12 +105,12 @@
 		[TestMethod]
 		public void GetBroadcastTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.GetBroadcast(IPAddress.Any);
 			});
 
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.Any.GetBroadcast(IPAddress.IPv6Any);
 			});
@@ -121,12 +121,12 @@
 		[TestMethod]
 		public void GetFirstAddressTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.GetFirstAddress(IPAddress.Any);
 			});
 
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.Any.GetFirstAddress(IPAddress.IPv6Any);
 			});
@@ -137,12 +137,12 @@
 		[TestMethod]
 		public void GetLastAddressTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.GetLastAddress(IPAddress.Any);
 			});
 
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.Any.GetLastAddress(IPAddress.IPv6Any);
 			});
@@ -153,7 +153,7 @@
 		[TestMethod]
 		public void GetAddressCountTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddress.IPv6Any.GetAddressCount();
 			});
@@ -164,7 +164,7 @@
 		[TestMethod]
 		public void GetLocalHostAddressesTest()
 		{
-			Assert.ThrowsException<InvalidOperationException>(() =>
+			Assert.ThrowsExactly<InvalidOperationException>(() =>
 			{
 				IPAddressExtensions.GetLocalHostAddresses(Sockets.AddressFamily.InterNetworkV6).ToList();
 			});
